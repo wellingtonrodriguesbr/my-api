@@ -1,21 +1,12 @@
+import { RolesRepository } from "@roles/repositories/RolesRepository";
 import { Request, Response, Router } from "express";
-import { Role } from "@roles/entities/Role";
 
 const rolesRouter = Router();
-
-const roles: Role[] = [];
+const rolesRepository = new RolesRepository();
 
 rolesRouter.post("/", (req: Request, res: Response) => {
   const { name } = req.body;
-
-  const role = new Role();
-
-  Object.assign(role, {
-    name,
-    created_at: new Date(),
-  });
-
-  roles.push(role);
+  const role = rolesRepository.create({ name });
 
   return res.status(201).json(role);
 });

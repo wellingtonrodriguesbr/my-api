@@ -1,16 +1,15 @@
-import { createRolesController } from "@roles/useCases/createRole";
+import { createRoleController } from "@roles/useCases/createRole";
+import { listRolesController } from "@roles/useCases/listRoles";
 import { Router } from "express";
 
 const rolesRouter = Router();
 
-/* rolesRouter.get("/", (req, res) => {
-  const roles = rolesRepository.findAll();
-
-  return res.json(roles);
-}); */
+rolesRouter.get("/", (req, res) => {
+  return listRolesController.handle(req, res);
+});
 
 rolesRouter.post("/", (req, res) => {
-  return createRolesController.handle(req, res);
+  return createRoleController.handle(req, res);
 });
 
 export { rolesRouter };

@@ -1,18 +1,19 @@
 import { Request, Response, Router } from "express";
-import { v4 as uuidV4 } from "uuid";
+import { Role } from "@roles/entities/Role";
 
 const rolesRouter = Router();
 
-const roles = [];
+const roles: Role[] = [];
 
 rolesRouter.post("/", (req: Request, res: Response) => {
   const { name } = req.body;
 
-  const role = {
-    id: uuidV4(),
+  const role = new Role();
+
+  Object.assign(role, {
     name,
     created_at: new Date(),
-  };
+  });
 
   roles.push(role);
 

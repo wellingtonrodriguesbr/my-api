@@ -1,7 +1,7 @@
-import { dataSource } from "@shared/typeorm";
 import "dotenv/config";
 import "reflect-metadata";
 
+import { dataSource } from "@shared/typeorm";
 import { app } from "./app";
 
 dataSource

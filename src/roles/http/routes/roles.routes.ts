@@ -1,12 +1,18 @@
-import { createRoleController } from "@roles/useCases/createRole";
-import { deleteRoleController } from "@roles/useCases/deleteRole";
-import { listRolesController } from "@roles/useCases/listRoles";
-import { showRoleController } from "@roles/useCases/showRole";
-import { updateRoleController } from "@roles/useCases/updateRole";
 import { Router } from "express";
 import { celebrate, Joi, Segments } from "celebrate";
+import { CreateRoleController } from "@roles/useCases/createRole/CreateRoleController";
+import { DeleteRoleController } from "@roles/useCases/deleteRole/DeleteRoleController";
+import { ListRolesController } from "@roles/useCases/listRoles/ListRolesController";
+import { ShowRoleController } from "@roles/useCases/showRole/ShowRoleController";
+import { UpdateRoleController } from "@roles/useCases/updateRole/UpdateRoleController";
 
 const rolesRouter = Router();
+
+const createRoleController = new CreateRoleController();
+const deleteRoleController = new DeleteRoleController();
+const listRolesController = new ListRolesController();
+const showRoleController = new ShowRoleController();
+const updateRoleController = new UpdateRoleController();
 
 rolesRouter.get(
   "/",

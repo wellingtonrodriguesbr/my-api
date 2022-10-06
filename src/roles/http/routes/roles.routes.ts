@@ -5,14 +5,15 @@ import { DeleteRoleController } from "@roles/useCases/deleteRole/DeleteRoleContr
 import { ListRolesController } from "@roles/useCases/listRoles/ListRolesController";
 import { ShowRoleController } from "@roles/useCases/showRole/ShowRoleController";
 import { UpdateRoleController } from "@roles/useCases/updateRole/UpdateRoleController";
+import { container } from "tsyringe";
 
 const rolesRouter = Router();
 
-const createRoleController = new CreateRoleController();
-const deleteRoleController = new DeleteRoleController();
-const listRolesController = new ListRolesController();
-const showRoleController = new ShowRoleController();
-const updateRoleController = new UpdateRoleController();
+const createRoleController = container.resolve(CreateRoleController);
+const listRolesController = container.resolve(ListRolesController);
+const showRoleController = container.resolve(ShowRoleController);
+const updateRoleController = container.resolve(UpdateRoleController);
+const deleteRoleController = container.resolve(DeleteRoleController);
 
 rolesRouter.get(
   "/",

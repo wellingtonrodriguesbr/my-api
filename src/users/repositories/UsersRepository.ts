@@ -1,16 +1,16 @@
 import { dataSource } from "@shared/typeorm";
 import { User } from "@users/entities/User";
 import { Repository } from "typeorm";
-import { CreateUsersDTO, IUsersRepository, PaginateParams, UsersPaginateProperties } from "./IUsersRepository";
+import { CreateUserDTO, IUsersRepository, PaginateParams, UsersPaginateProperties } from "./IUsersRepository";
 
-export class UserRepository implements IUsersRepository {
+export class UsersRepository implements IUsersRepository {
   private repository: Repository<User>;
 
   constructor() {
     this.repository = dataSource.getRepository(User);
   }
 
-  async create({ name, email, password, isAdmin, role }: CreateUsersDTO): Promise<User> {
+  async create({ name, email, password, isAdmin, role }: CreateUserDTO): Promise<User> {
     const user = this.repository.create({ name, email, password, isAdmin, role });
     return this.repository.save(user);
   }

@@ -23,7 +23,7 @@ export class CreateUserUseCase {
   ) {}
 
   async execute({ name, email, password, isAdmin, roleId }: CreateUserDTO): Promise<User> {
-    const emailAlreadyExists = await this.usersRepository.findByName(email);
+    const emailAlreadyExists = await this.usersRepository.findByEmail(email);
     if (emailAlreadyExists) {
       throw new AppError("Email address already used!");
     }

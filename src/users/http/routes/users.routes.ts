@@ -23,7 +23,6 @@ const upload = multer(uploadConfig);
 
 usersRouter.post(
   "/",
-  isAuthenticated,
   celebrate({
     [Segments.BODY]: {
       name: Joi.string().required(),

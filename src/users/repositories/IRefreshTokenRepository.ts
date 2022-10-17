@@ -1,6 +1,6 @@
 import { RefreshToken } from "@users/entities/RefreshToken";
 
-type CreateRefreskTokenDTO = {
+export type CreateRefreskTokenDTO = {
   user_id: string;
   token: string;
   expires: Date;

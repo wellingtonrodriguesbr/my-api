@@ -2,6 +2,7 @@ import { IRefreshTokenRepository } from "@users/repositories/IRefreshTokenReposi
 import { IUsersRepository } from "@users/repositories/IUsersRepository";
 import { RefreshTokenRepository } from "@users/repositories/RefreshTokenRepository";
 import { UsersRepository } from "@users/repositories/UsersRepository";
+import { CreateAccessAndRefreshTokenController } from "@users/useCases/createAccessAndRefreshToken/CreateAccessAndRefreshTokenController";
 import { CreateLoginController } from "@users/useCases/createLogin/CreateLoginController";
 import { CreateUserController } from "@users/useCases/createUser/CreateUserController";
 import { ShowProfileController } from "@users/useCases/showProfile/ShowProfileController";
@@ -17,3 +18,4 @@ container.registerSingleton("CreateLoginController", CreateLoginController);
 container.registerSingleton("UpdateAvatarController", UpdateAvatarController);
 container.registerSingleton("ShowProfileController", ShowProfileController);
 container.registerSingleton("UpdateProfileController", UpdateProfileController);
+container.registerSingleton("CreateAccessAndRefreshTokenController", CreateAccessAndRefreshTokenController);
